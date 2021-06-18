@@ -1,0 +1,118 @@
+<div class="sticky">
+  <div class="flex">
+    <img id="logo" src="assets/img/logo.svg" class="img-fluid" />
+  </div>
+  <hr id="logo-hr" />
+</div>
+<div id="inline">
+  <div id="before-add">
+    <p>Add new note</p>
+  </div>
+  <button id="add" mat-button (click)="addNewNote(callAPIDialogAdd)">
+    <mat-icon id="buton-add">add</mat-icon>
+  </button>
+</div>
+  <div #contenedor id="drop-group" class="drop-group" cdkDropListGroup>
+    <ng-container *ngFor="let note of notes; let i = index">
+      <div
+      class="flex-note"
+      id="notes"
+      cdkDropList
+      cdkDropListOrientation="horizontal"
+      [cdkDropListData]="{note:note,index:i}"
+      (cdkDropListDropped)="drop($event)"
+      >
+      <mat-card  class="note" cdkDrag>
+          <mat-card-title id="title">{{ note.title }}</mat-card-title>
+          <hr id="note-hr" />
+          <mat-card-content id="description">{{ note.description }}</mat-card-content>
+        <button id="edit" mat-icon-button (click)="sendEditNote(note)">
+          <mat-icon id="button-edit">edit</mat-icon>
+        </button>
+        <button id="delete" mat-icon-button (click)="deleteNote(note.id)">
+          <mat-icon id="button-delete">delete</mat-icon>
+        </button>
+      </mat-card>
+    </div>
+  </ng-container>
+</div>
+<ng-template #callAPIDialog>
+  <form #userForm="ngForm" id="form-edit">
+    <h2 matDialogTitle>Edit note</h2>
+    <mat-form-field>
+      <input
+        id="input-note-title-edit"
+        matInput
+        type="text"
+        placeholder="Title"
+        name="noteTitleEdit"
+        [(ngModel)]="dialogEditTitle"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        id="input-note-description-edit"
+        matInput
+        type="text"
+        placeholder="Description"
+        name="noteDescriptionEdit"
+        [(ngModel)]="dialogEditDescription"
+        required
+      />
+    </mat-form-field>
+    <mat-dialog-actions align="end">
+      <button type="button" mat-dialog-close mat-button>Anuluj</button>
+      <button
+        type="submit"
+        [mat-dialog-close]="true"
+        cdkFocusInitial
+        cdkFocusInitial
+        mat-button
+      >
+        Zapisz
+      </button>
+    </mat-dialog-actions>
+  </form>
+</ng-template>
+
+<ng-template #callAPIDialogAdd>
+  <form #userForm="ngForm" id="form-add">
+    <h2 matDialogTitle>Add new note</h2>
+    <mat-form-field>
+      <input
+        id="input-note-title-add"
+        matInput
+        type="text"
+        placeholder="Title"
+        name="noteTitleAdd"
+        [(ngModel)]="dialogAddTitle"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        id="input-note-description-add"
+        matInput
+        type="text"
+        placeholder="Description"
+        name="noteDescriptionAdd"
+        [(ngModel)]="dialogAddDescription"
+        required
+      />
+    </mat-form-field>
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Anuluj</button>
+      <button
+        type="submit"
+        [mat-dialog-close]="true"
+        cdkFocusInitial
+        mat-button
+      >
+        Zapisz
+      </button>
+    </mat-dialog-actions>
+  </form>
+</ng-template>
+
+<router-outlet></router-outlet>

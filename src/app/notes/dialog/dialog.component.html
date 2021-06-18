@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>Potwierdzenie</h2>
+<mat-dialog-content>
+  <p>Czy chcesz zaakceptować zmiany?</p>
+  <!-- {{ data.title }} -->
+</mat-dialog-content>
+<!-- <mat-form-field>
+    <mat-label>Tytuł</mat-label>
+    <input matInput [(ngModel)]="editNote.title">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <input matInput [(ngModel)]="editNote.description">
+  </mat-form-field> -->
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close [mat-dialog-close]="true">NIE</button>
+  <button mat-button cdkFocusInitial [mat-dialog-close]="true">TAK</button>
+</mat-dialog-actions>

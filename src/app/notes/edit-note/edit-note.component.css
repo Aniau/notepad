@@ -1,0 +1,56 @@
+#add-note-form
+{
+    position: relative;
+    background-color: #7C37FA;
+    width: 30%;
+    height: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    margin-top: 5%;
+}
+
+#title
+{
+    text-align: center;
+    margin-top: 5%;
+}
+
+.note-title
+{
+    display: block;
+    width: 90%;
+    margin-left: 4%;
+    height: 20%;
+}
+
+.note-desc
+{
+    margin-left: 4%;
+    width: 90%;
+}
+
+#buttons
+{
+    position: absolute;
+    display: flex;
+    flex-direction: row-reverse;
+    bottom: 5%;
+    right: 5%;
+    width: 100%;
+}
+
+#add-btn
+{
+    margin-left: 5%; 
+}
+
+
+@media only screen and (max-width: 1000px) 
+{
+    #add-note-form
+    {
+        width: 60%;
+        height: 50%;
+    }
+}

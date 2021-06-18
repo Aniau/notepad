@@ -1,0 +1,33 @@
+<mat-card id="add-note-form">
+  <mat-card-title id="title">Nowa notatka</mat-card-title>
+  <form>
+    <mat-form-field class="note-title">
+      <mat-label>Tytuł notatki</mat-label>
+      <input
+        matInput
+        placeholder="Tytuł notatki"
+        [(ngModel)]="title"
+        [formControl]="noteTitle"
+      />
+    </mat-form-field>
+    <mat-form-field class="note-desc">
+      <mat-label>Treść notatki</mat-label>
+      <textarea
+        matInput
+        placeholder="Treść notatki"
+        [(ngModel)]="description"
+        [formControl]="noteDescription"
+      ></textarea>
+    </mat-form-field>
+    <div id="buttons">
+      <button
+        mat-raised-button
+        id="add-btn"
+        (click)="addNewNote()">
+        Add note
+      </button>
+      <button mat-raised-button id="cancel-btn" routerLink="">Cancel</button>
+    </div>
+  </form>
+</mat-card>
+<router-outlet></router-outlet>
