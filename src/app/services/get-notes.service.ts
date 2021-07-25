@@ -10,14 +10,14 @@ import { catchError, tap } from "rxjs/operators";
 })
 export class GetNotesService {
   private noteEdit = new BehaviorSubject<Note>({} as any);
-  url = 'http://localhost:3000/notes';
+  url = 'http://localhost:3000/note';
 
   constructor(private http: HttpClient, private errorHandling: ErrorHandlingService) { }
 
   getNotes(): Observable<Note[]>
   {
     return this.http.get<Note[]>(this.url).pipe(
-      catchError(this.errorHandling.handleError<Note[]>('getNotes', []))
+      catchError(this.errorHandling.handleError<Note[]>('getAll', []))
     );
   }
 
