@@ -116,7 +116,7 @@ export class NotesComponent implements OnInit {
       (result) => 
       {
         console.log(result)
-        window.location.reload();
+        //window.location.reload();
       },
       (error) => 
       {
@@ -152,10 +152,12 @@ export class NotesComponent implements OnInit {
             "title": this.dialogAddTitle,
             "description": this.dialogAddDescription
           }
+          console.log(this.dialogAddTitle);
+          console.log(this.dialogAddDescription);
           this.GetNotesService.addNewNote(newNote).subscribe(
             result => {
               console.log(result);
-              window.location.reload();
+              //window.location.reload();
             },
             error => 
             {

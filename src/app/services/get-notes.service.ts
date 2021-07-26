@@ -23,17 +23,17 @@ export class GetNotesService {
 
   deleteNote(id: number): Observable<Note>
   {
-    return this.http.delete<Note>(this.url + '/' + id).pipe(catchError(this.errorHandling.handleError<Note>('deleteNote')));
+    return this.http.delete<Note>(this.url + '/' + id).pipe(catchError(this.errorHandling.handleError<Note>('remove')));
   }
 
   addNewNote(note: Note): Observable<Note>
   {
-    return this.http.post<Note>(this.url, note).pipe(catchError(this.errorHandling.handleError<Note>('addNewNote')))
+    return this.http.post<Note>(this.url, note).pipe(catchError(this.errorHandling.handleError<Note>('create')))
   }
 
   putEditNote(note: Note): Observable<Note>
   {
-    return this.http.put<Note>(this.url + '/note', note).pipe(catchError(this.errorHandling.handleError<Note>('putEditNote')))
+    return this.http.put<Note>(this.url + '/' + note.id, note).pipe(catchError(this.errorHandling.handleError<Note>('update')))
   }
 
   public init(note: Note): void
