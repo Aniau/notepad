@@ -110,7 +110,6 @@ export class NotesComponent implements OnInit {
         "id": this.dialogEditId,
         "title": this.dialogEditTitle,
         "description": this.dialogEditDescription
-  
       }
       this.GetNotesService.putEditNote(newNote).subscribe(
       (result) => 

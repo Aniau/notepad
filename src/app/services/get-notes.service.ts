@@ -9,7 +9,7 @@ import { catchError, tap } from "rxjs/operators";
   providedIn: 'root'
 })
 export class GetNotesService {
-  private noteEdit = new BehaviorSubject<Note>({} as any);
+  private noteEdit = new BehaviorSubject<Note>({} as Note);
   url = 'http://localhost:3000/note';
 
   constructor(private http: HttpClient, private errorHandling: ErrorHandlingService) { }
