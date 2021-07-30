@@ -12,6 +12,13 @@
     <mat-icon id="buton-add">add</mat-icon>
   </button>
 </div>
+<div>
+  <mat-form-field class="search-input">
+    <input id="search" type="text" [(ngModel)]="searchValue" (keyup)="doFilter()" matInput
+           placeholder="Search note...">
+    <mat-icon>search</mat-icon>
+  </mat-form-field>
+</div>
   <div #contenedor id="drop-group" class="drop-group" cdkDropListGroup>
     <ng-container *ngFor="let note of notes; let i = index">
       <div

@@ -29,6 +29,8 @@ export class NotesComponent implements OnInit {
   public dialogAddDescription: string;
   public dialogAddId: number;
   private deleteAnswer: boolean = false;
+  public searchValue: string; 
+  public searchNotes: Note[];
   @ViewChild('callAPIDialog') callAPIDialog: TemplateRef<any>;
   // @ViewChild('callAPIDialog') callAPIDialogAdd: TemplateRef<any>;
   private url = 'http://localhost:3000/notes';
@@ -65,6 +67,21 @@ export class NotesComponent implements OnInit {
     error => {
       console.log(error);
     });   
+  }
+
+  doFilter()
+  {
+    this.notes.filter((note: Note) =>
+    !note.title.indexOf(this.searchValue));
+   // console.log(this.searchNotes);
+   // if(this.searchValue !== '')
+   // {
+   //   this.notes = this.searchNotes;
+   // }
+   // else{
+      
+   //   this.notes;
+   // }
   }
 
   drop(event: CdkDragDrop<any>) 
